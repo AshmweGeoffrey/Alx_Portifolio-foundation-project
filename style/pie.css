@@ -15,17 +15,49 @@
 #tot-sales {
     position: absolute;
     right: 60%;
-    bottom: 10%;
+    bottom: 1%;
     border:1px solid #00BF63;
     width: 200px; /* Adjust as needed */
     height: auto;
-    padding: 20px;
+    padding: 10px;
     background-color: #f8f8f8; /* Light gray background */
-    border: 1px solid #ddd; /* Light gray border */
+    border: 1px solid #59bee6; /* Light gray border */
     border-radius: 4px; /* Rounded corners */
     margin: 10px; /* Space around the element */
     font-family: Arial, sans-serif; /* Font family */
     font-size: 14px; /* Font size */
     color: #333; /* Text color */
 
+}
+#tot-icons {
+    position: absolute;
+    right: 78%;
+    bottom: 1%;
+    border:1px solid #00BF63;
+    width: 82px; /* Adjust as needed */
+    height: 375px;
+    background-color: #f8f8f8; /* Light gray background */
+    border-left: 1px solid #00BF63; /* Light gray border */
+    border-right: 1px solid salmon;
+    border-bottom: 1px solid#ecd341;
+    border-top:1px solid#ecd341;
+    border-radius: 4px; /* Rounded corners */
+    margin: 10px; /* Space around the element */
+    font-family: Arial, sans-serif; /* Font family */
+    color: #333; /* Text color */
+    display: flex;
+    align-items: center;
+}
+#tot-icons img {
+    width: 30px;
+    height: auto;
+    margin: 1px;
+}
+#tot-icons ul {
+    list-style-type: none;
+}
+#tot-icons li {
+    border: 1px solid #ecd341;
+    border-radius: 4px;
+    margin: 3px;
 }
