@@ -30,8 +30,6 @@ header img {
 #container {
     flex: 1 0 auto; /* Grow to fill available space */
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
     align-items: center;
     background-color: #fff;
@@ -98,109 +96,4 @@ header img {
 #sidebar img:hover {
     border-radius: 2px; /* adjust as needed */
     margin: 1px;
-}
-#container-1 {
-    position: relative;
-    top: -210px;
-    left: -480px;
-    width: 150px;
-    height: auto;
-    border:1px solid #00BF63;
-    border-radius: 15px;
-    padding: 4px;
-    display: flex;
-    align-items: center;
-}
-#container-1 img {
-    position: inherit;
-    width: 30px;
-    height: auto;
-}
-#text-container {
-    margin-left: 10px; /* Add space between the image and the text */
-}
-
-#text-container p {
-    margin: 0; /* Remove default paragraph margins */
-}
-#stock-status {
-    position:absolute;
-    top: 100px;
-    left: 40%; 
-    font-size: 30px; /* green text */
-    border-bottom:1px solid #00BF63;
-    padding-bottom: -50px;
-    line-height: 0.8;
-}
-#table {
-    position: absolute;
-    margin-top: 20px; /* adjust as needed */
-    top: 190px;
-    left: 100px;
-}
-
-#table table {
-    border-collapse: separate; /* remove space between table cells */
-    border-spacing: 1px;
-}
-#table th, #table td {
-    border: 1px solid #000; /* add border to table cells */
-    padding: 10px; /* add space inside table cells */
-}
-#container-2 {
-    position: absolute;
-    padding: 10px;
-    background-color: #a5d9e9;
-    border-radius: 20px;
-    left: 100px;
-    top: 180px;
-    box-sizing: border;
-}
-#container-2 p{
-    font-size: 20px;
-    text-align: center;
-    margin: 10px;
-}
-#container-2 input{
-    display: flex;
-}
-#container-3 {
-    position: absolute;
-    padding: 10px;
-    background-color: #ddf379;
-    border-radius: 20px;
-    left: 350px;
-    top: 180px;
-    box-sizing: border;
-}
-#container-3 p{
-    font-size: 20px;
-    text-align: center;
-    margin: 10px;
-}
-#container-3 input{
-    display: flex;
-}
-#container-4 {
-    position: absolute;
-    padding: 10px;
-    background-color: #8a705f;
-    border-radius: 20px;
-    left: 650px;
-    top: 180px;
-    box-sizing: border;
-}
-#container-4 p{
-    font-size: 20px;
-    text-align: center;
-    margin: 10px;
-}
-#container-4 input{
-    display: flex;
-}
-.hidden {
-    display: none;
-}
-.avalaible {
-    display: block;
 }

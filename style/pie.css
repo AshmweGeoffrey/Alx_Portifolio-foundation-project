@@ -1,0 +1,14 @@
+#pie {
+    position: absolute;
+    width: 25%; 
+    margin: auto;
+    right: 80px;
+    bottom: 50px;
+    border: 1px solid #00BF63;
+    background-color: #ffff;
+}
+#pie p {
+    font-style: italic;
+    font-size: 15px;
+    padding: 0px;
+}
