@@ -1,14 +1,38 @@
 window.onload = function() {
-    // Get all the containers
-    var containers = document.querySelectorAll('#container-2, #container-3, #container-4');
-    alert(containers.length);
+    const containerIds = ['container-2', 'container-3', 'container-4'];
+    const hiddenDiv = document.getElementById('hidden');
 
-    // Add a click event listener to each container
-    for (var i = 0; i < containers.length; i++) {
-        containers[i].addEventListener('click', function(event) {
-            alert('A container was clicked.');
-            // Toggle 'hidden' class on the clicked container
-            event.currentTarget.classList.add('available');
+    if (hiddenDiv) {
+        // Initially hide the content
+        hiddenDiv.style.display = 'none';
+        console.log("Set initial display of #hidden to 'none'");
+
+        containerIds.forEach(id => {
+            const container = document.getElementById(id);
+
+            if (container) {
+                container.addEventListener('click', function() {
+                    console.log(`${id} was clicked.`);
+
+                    // Move the hidden div inside the clicked container
+                    this.appendChild(hiddenDiv);
+
+                    // Toggle the visibility of the hidden div
+                    if (hiddenDiv.style.display === 'block') {
+                        hiddenDiv.style.display = 'none';
+                        console.log(`Hidden content is now hidden.`);
+                    } else {
+                        hiddenDiv.style.display = 'block';
+                        console.log(`Hidden content is now visible in ${id}.`);
+                    }
+                });
+
+                console.log(`Click event listener added to #${id}`);
+            } else {
+                console.error(`Container #${id} not found.`);
+            }
         });
+    } else {
+        console.error("The 'hidden' div was not found!");
     }
 };

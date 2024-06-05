@@ -198,8 +198,9 @@ header img {
 #container-4 input{
     display: flex;
 }
-.hidden {
-    display: none;
+#hidden {
+    display: none; /* Hide the element */
+    /* Remove the 'display: none;' property */
 }
 .avalaible {
     display: block;
