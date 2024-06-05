@@ -6,7 +6,7 @@ html, body {
 }
 
 body {
-    background-color: #00BF63;
+    background-color: #ffffff;
     font-family: 'Oswald', sans-serif;
 }
 
@@ -14,7 +14,7 @@ header, footer {
   flex: 0 0 auto; /* Ensure header and footer do not grow */
     background-color: #ffffff;
     color: rgb(10, 10, 10);
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     font-size: 23px;
 
@@ -41,15 +41,6 @@ header img {
     top: 10px;
     right: 10px;
 }
-#sidebar {
-    position: fixed;
-    width: 25px;
-    height: 100%;
-    background: #f5f8f5;
-    padding: 20px;
-    overflow: auto;
-}
-
 #sidebar ul {
     list-style: none;
     padding: 0;
@@ -64,11 +55,11 @@ header img {
     text-decoration: none;
 }
 #sidebar {
-    position: fixed;
+    position: relative;
     width: 32px;
     height: 100%;
     background: #ffffff;
-    padding: 20px;
+    padding: 15px;
     overflow: auto;
     display: flex;
     align-items: flex-start;
@@ -98,11 +89,12 @@ header img {
 #sidebar img:hover {
     border-radius: 2px; /* adjust as needed */
     margin: 1px;
+
 }
 #container-1 {
-    position: relative;
-    top: -210px;
-    left: -480px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
     width: 150px;
     height: auto;
     border:1px solid #00BF63;
@@ -112,9 +104,9 @@ header img {
     align-items: center;
 }
 #container-1 img {
-    position: inherit;
     width: 30px;
     height: auto;
+
 }
 #text-container {
     margin-left: 10px; /* Add space between the image and the text */
@@ -137,6 +129,9 @@ header img {
     margin-top: 20px; /* adjust as needed */
     top: 190px;
     left: 100px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 4px;
 }
 
 #table table {

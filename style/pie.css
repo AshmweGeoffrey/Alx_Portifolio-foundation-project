@@ -5,10 +5,27 @@
     right: 80px;
     bottom: 50px;
     border: 1px solid #00BF63;
-    background-color: #ffff;
+    background-color: #ffffff;
 }
 #pie p {
     font-style: italic;
     font-size: 15px;
     padding: 0px;
+}
+#tot-sales {
+    position: absolute;
+    right: 60%;
+    bottom: 10%;
+    border:1px solid #00BF63;
+    width: 200px; /* Adjust as needed */
+    height: auto;
+    padding: 20px;
+    background-color: #f8f8f8; /* Light gray background */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    margin: 10px; /* Space around the element */
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 14px; /* Font size */
+    color: #333; /* Text color */
+
 }
