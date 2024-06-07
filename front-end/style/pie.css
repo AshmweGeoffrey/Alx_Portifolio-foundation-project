@@ -13,29 +13,33 @@
     padding: 0px;
 }
 #tot-sales {
+    display: flex;
+    flex-wrap: wrap;
     position: absolute;
-    right: 60%;
-    bottom: 1%;
+    left: 200px;
+    bottom: 2.5%;
     border:1px solid #00BF63;
     width: 200px; /* Adjust as needed */
-    height: auto;
+    height: 56%;
     padding: 10px;
     background-color: #f8f8f8; /* Light gray background */
     border: 1px solid #59bee6; /* Light gray border */
     border-radius: 4px; /* Rounded corners */
     margin: 10px; /* Space around the element */
     font-family: Arial, sans-serif; /* Font family */
-    font-size: 14px; /* Font size */
+    font-size: 12px; /* Font size */
     color: #333; /* Text color */
 
 }
 #tot-icons {
+    display: flex;
+    flex-wrap: wrap;
     position: absolute;
-    right: 78%;
-    bottom: 1%;
+    left: 89px;
+    bottom: 2.5%;
     border:1px solid #00BF63;
     width: 82px; /* Adjust as needed */
-    height: 375px;
+    height: 60%;
     background-color: #f8f8f8; /* Light gray background */
     border-left: 1px solid #00BF63; /* Light gray border */
     border-right: 1px solid salmon;
