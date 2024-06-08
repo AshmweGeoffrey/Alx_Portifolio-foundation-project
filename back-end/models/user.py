@@ -2,6 +2,7 @@
 from sqlalchemy import String, Column, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
+from requests import get
 class user(BaseModel,Base):
     __tablename__='user'
     id=Column(String(50), primary_key=True,nullable=False)
@@ -10,4 +11,9 @@ class user(BaseModel,Base):
     access_control=Column(String(32), unique=True)
     email=Column(String(32), nullable=False,unique=True)
     def __init__(self,*args,**kwargs):
+        url='https://api.genratr.com/?length=16&uppercase&lowercase&special&numbers'
+        temp=get(url)
+        if temp.status_code==200:
+            password=temp.json()['password']
+            kwargs['password']=password
         super().__init__(*args,**kwargs)
