@@ -1,0 +1,9 @@
+#SMALL DETAILS ON CREDENTIALS
+username = stock_dev
+password = yEGS0G5&U2OFOBVs15
+port = 3306
+host = localhost
+Datebase_name = AX_STOCK_ALX_PROJECT
+Allowed ops = [INSERT,SELECT]
+#DATABASE DUMP(empty database)
+mysql -u my_username -p AX_STOCK_ALX_PROJECT < AX_STOCK_ALX_PROJECT.sql

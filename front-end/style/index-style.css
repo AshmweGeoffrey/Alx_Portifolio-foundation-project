@@ -12,11 +12,12 @@ body {
 
 header, footer{
     flex: 0 0 auto; /* Ensure header and footer do not grow */
-    background-color: #00BF63;
+    background-color: #ffffff;
     color: rgb(10, 10, 10);
     padding: 10px;
     text-align: center;
     font-size: 24px;
+    border-bottom:3px solid #00BF63;
 }
 
 #container {
