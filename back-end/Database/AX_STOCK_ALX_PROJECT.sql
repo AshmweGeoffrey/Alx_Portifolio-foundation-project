@@ -25,8 +25,7 @@ DROP TABLE IF EXISTS `branch`;
 CREATE TABLE `branch` (
   `id` varchar(50) NOT NULL,
   `branch_name` varchar(16) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `branch_name` (`branch_name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,8 +49,7 @@ CREATE TABLE `category` (
   `id` varchar(50) NOT NULL,
   `category_name` varchar(32) NOT NULL,
   `percentage` varchar(12) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `category_name` (`category_name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -78,7 +76,6 @@ CREATE TABLE `inventory` (
   `inventory_quantity` int NOT NULL DEFAULT '0',
   `incoming_time_stamp` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
   KEY `category_name` (`category_name`),
   CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`category_name`) REFERENCES `category` (`category_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -108,9 +105,6 @@ CREATE TABLE `outgoing_stock` (
   `id` varchar(50) NOT NULL,
   `quantity` int NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `item_name` (`item_name`),
-  UNIQUE KEY `category_name` (`category_name`),
-  UNIQUE KEY `user_name` (`user_name`),
   CONSTRAINT `outgoing_stock_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `inventory` (`name`),
   CONSTRAINT `outgoing_stock_ibfk_2` FOREIGN KEY (`category_name`) REFERENCES `category` (`category_name`),
   CONSTRAINT `outgoing_stock_ibfk_3` FOREIGN KEY (`user_name`) REFERENCES `user` (`name`)
@@ -141,9 +135,6 @@ CREATE TABLE `sale_weekly` (
   `user_name` varchar(32) DEFAULT NULL,
   `time_stamp` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `item_name` (`item_name`),
-  UNIQUE KEY `user_name` (`user_name`),
-  UNIQUE KEY `time_stamp` (`time_stamp`),
   CONSTRAINT `sale_weekly_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -170,10 +161,7 @@ CREATE TABLE `user` (
   `password` varchar(256) DEFAULT NULL,
   `access_control` varchar(32) DEFAULT NULL,
   `email` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `name` (`name`),
-  UNIQUE KEY `password` (`password`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

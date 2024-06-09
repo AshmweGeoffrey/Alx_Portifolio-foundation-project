@@ -32,3 +32,14 @@ class BaseModel:
     def save(self):
         models.storage.new(self)
         models.storage.save()
+    def select_all(self):
+        table_name=self.__tablename__
+        result=models.storage.command("SELECT * FROM {:s}".format(table_name))
+        main_list=[]
+        inner_list=[]
+        for  i in result.fetchall():
+            for j in i:
+                inner_list.append(j)
+            main_list.append(inner_list)
+            inner_list=[]
+        return main_list

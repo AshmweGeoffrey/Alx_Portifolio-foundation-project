@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="images/in-stock.png">
+        <link rel="stylesheet" href="style/home-style.css">
+        <script src="script/home.js"></script>
+        <link href="https://fonts.cdnfonts.com/css/abnes" rel="stylesheet">
+        <style>
+        @import url('https://fonts.cdnfonts.com/css/abnes');
+
+        header {
+            font-family: 'abnes', sans-serif;
+        }
+        </style>
+        <title>
+            Ax Stock
+        </title>
+    </head>
+    <body>
+        <header><img src="images/in-stock.png" alt=""> AX</header>
+        <div id="sidebar">
+            <ul>
+                <li><a href="index.html"><img src="images/in-stock.png" alt="" id="in-stock"></a></li>
+                <li><a href="home.html"><img src="images/home.png" alt=""></a></li>
+                <li><a href="inventory.html"><img src="images/table.png" alt=""></a></li>
+                <li><a href="sales.html"><img src="images/line-chart.png" alt=""></a></li>
+                <li><a href="pie.html"><img src="images/pie-chart.png" alt=""></a></li>
+                <li><img src="images/logout.png" alt="" id="logout" ></li>
+               <!-- Add more links as needed -->
+            </ul>
+        </div>
+        <div id="container">
+            <div id="container-1">
+                <img src="images/login-icon.jpeg" alt="">
+                <div id="text-container">
+                    <p>Username</p>
+                    <p>Date</p>
+                </div>
+            </div>
+            <div id="container-2">
+                <p>Sale</p>
+                <div id="hidden">
+                <div class="input">
+                    <label for="Item name">Item name</label>
+                    <input type="text" id="Item name" id="Item name" required>
+                </div>
+                <div class="Amount">
+                    <label for="Amount">Amount</label>
+                    <input type="text" id="Amount" id="Amount" required>
+                    <button>Sale</button>
+                </div>
+                </div>
+            </div>
+            <div id="container-3">
+                <p>New - Item</p>
+                <div id="hidden">
+                <div class="input">
+                    <label for="Item name">Item name</label>
+                    <input type="text" id="Item name" id="Item name" required>
+                </div>
+                <div class="Amount">
+                    <label for="Amount">Amount</label>
+                    <input type="text" id="Amount" id="Amount" required>
+                    <button>Insert</button>
+                    </div>
+                </div>
+            </div>
+            <div id="container-4">
+                <p>outgoing - Item</p>
+                <div id="hidden">
+                    <div class="input">
+                        <label for="Item name">Item name</label>
+                        <input type="text" id="Item name" id="Item name" required>
+                    </div>
+                    <div class="Amount">
+                        <label for="Amount">Amount</label>
+                        <input type="text" id="Amount" id="Amount" required>
+                        <button>Insert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
