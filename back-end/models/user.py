@@ -17,6 +17,3 @@ class user(BaseModel,Base):
             password=temp.json()['password']
             kwargs['password']=password
         super().__init__(*args,**kwargs)
-    def get_user(self):
-        user_dummy=self.select_all()
-        return self.select_all()

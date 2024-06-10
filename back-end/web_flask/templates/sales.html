@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="shortcut icon" href="images/in-stock.png">
-        <link rel="stylesheet" href="style/home-style.css">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='images/in-stock.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/home-style.css') }}">
         <title>
             Ax Stock
         </title>
@@ -15,19 +15,21 @@
         </style>
     </head>
     <body>
-        <header><img src="images/in-stock.png" alt=""> AX</header>
+        <header><img src="{{ url_for('static', filename='images/in-stock.png') }}" alt=""> AX</header>
         <div id="sidebar">
             <ul>
-             <li><a href="index.html"><img src="images/in-stock.png" alt="" id="in-stock"></a></li>
-                <li><a href="home.html"><img src="images/home.png" alt=""></a></li>
-                <li><a href="inventory.html"><img src="images/table.png" alt=""></a></li>
-                <li><a href="sales.html"><img src="images/line-chart.png" alt=""></a></li>
-                <li><a href="pie.html"><img src="images/pie-chart.png" alt=""></a></li>
-                <li><img src="images/logout.png" alt="" id="logout" ></li>
+             <li><a href="index"><img src="{{ url_for('static', filename='images/in-stock.png') }}" alt="" id="in-stock"></a></li>
+                <li><a href="home"><img src="{{ url_for('static', filename='images/home.png') }}" alt=""></a></li>
+                <li><a href="inventory"><img src="{{ url_for('static', filename='images/table.png') }}" alt=""></a></li>
+                <li><a href="sales"><img src="{{ url_for('static', filename='images/line-chart.png') }}" alt=""></a></li>
+                <li><a href="out_going" ><img src="{{ url_for('static', filename='images/transaction.png') }}" alt=""></a></li>
+                <li><a href="pie"><img src="{{ url_for('static', filename='images/pie-chart.png') }}" alt=""></a></li>
+                <li><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></li>
                <!-- Add more links as needed -->
             </ul>
         </div>
         <div id="container">
+            </div>
             <div id="stock-status">
                 <p>Current Week  Sales</p>
             </div>
@@ -44,14 +46,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for row in x %}
                         <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td> 
-                            <td>Data 3</td>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+                            <td>{{ row[5] }}</td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

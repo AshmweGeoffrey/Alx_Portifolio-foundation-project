@@ -10,7 +10,7 @@ def not_found(error):
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     storage.close()
-@app.route('/api/v.1/hello', methods=['GET'])
+@app.route('/api/v1/hello', methods=['GET'])
 def hello():
     return jsonify({'message': 'comming soon!'})
 if __name__ == "__main__":

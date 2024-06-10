@@ -43,3 +43,11 @@ class BaseModel:
             main_list.append(inner_list)
             inner_list=[]
         return main_list
+    def get_user(self, user_name):
+        table_name = self.__tablename__
+        result = models.storage.command("SELECT name FROM {} WHERE name='{}'".format(table_name, user_name))
+        main_list = []
+        for i in result.fetchall():
+            for j in i:
+                main_list.append(j)
+        return main_list
