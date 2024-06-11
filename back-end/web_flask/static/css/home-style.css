@@ -193,8 +193,7 @@ header img {
 #container-4 input{
     display: flex;
 }
-#hidden {
-    display: none; /* Hide the element */
-    /* Remove the 'display: none;' property */
+/*#hidden {
+    display: none;
     width: 200px;
-}
+}*/

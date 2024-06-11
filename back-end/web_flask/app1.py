@@ -4,8 +4,11 @@ app = Flask(__name__)
 app.static_folder = 'static'
 @app.route('/home')
 def main():
+    send_inventory=get('http://localhost:5000/api/v1/inventory').json()
     send=get('http://localhost:5000/api/v1/user/Bob Johnson').json()
-    return render_template('home.html',x=send)
+    send_category=get('http://localhost:5000/api/v1/category').json()
+    send_branch=get('http://localhost:5000/api/v1/branch').json()
+    return render_template('home.html',x=send,p=send_inventory,n=send_category,l=send_branch)
 @app.route('/sales')
 def sales():
     send_sales=get('http://localhost:5000/api/v1/sales').json()
