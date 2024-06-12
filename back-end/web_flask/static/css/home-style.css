@@ -55,7 +55,7 @@ header img {
     text-decoration: none;
 }
 #sidebar {
-    position: relative;
+    position: absolute;
     width: 32px;
     height: 100%;
     background: #ffffff;
@@ -199,3 +199,26 @@ header img {
     display: none;
     width: 200px;
 }*/
+#container-5 {
+    position: absolute;
+    padding: 10px;
+    background-color: #abe9a5;
+    bottom: 1%;
+    border-radius: 20px;
+    left: 100px;
+    box-sizing: border;
+}
+#container-5 p{
+    font-size: 20px;
+    text-align: center;
+    margin: 10px;
+}
+#container-5 input{
+    display: flex;
+}
+#container-1 p1{
+    text-align: center;
+    margin: 10px;
+    font-style: italic;
+    color: #35a4d8;
+}

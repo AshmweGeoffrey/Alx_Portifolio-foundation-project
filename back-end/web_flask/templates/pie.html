@@ -26,7 +26,7 @@
                 <li><a href="sales"><img src="{{ url_for('static', filename='images/line-chart.png') }}" alt=""></a></li>
                 <li><a href="out_going" ><img src="{{ url_for('static', filename='images/transaction.png') }}" alt=""></a></li>
                 <li><a href="pie"><img src="{{ url_for('static', filename='images/pie-chart.png') }}" alt=""></a></li>
-                <li><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></li>
+                <li><a href="index"><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></a></li>
                <!-- Add more links as needed -->
             </ul>
         </div>
@@ -45,14 +45,14 @@
             </ul>
             <h4>Total Weekly Sales</h4>
             <ul>
-                <li>Mobile Payment :</li>
-                <li>Card Payment :</li>
-                <li>Cash Payment :</li>
-                
+                <li>Mobile Payment : {{ pay['Cash'] }}</li>
+                <li>Card Payment : {{ pay['Mobile Money'] }}</li>
+                <li>Cash Payment : {{ pay['Pos'] }}</li>
+                <li><h4>Total : {{ pay['total'] }}</h4></li>
             </ul>
             <div>
-                <p><h4>Best selling Weekly :{{ best }}</h4> </p>
-                <p><h4>outgoing items :{{ out_going }}</h4></p>
+                <p>Best selling Weekly : {{ best }}</p>
+                <p>outgoing items : {{ out_going }}</p>
             </div>    
         </div>
     </div>

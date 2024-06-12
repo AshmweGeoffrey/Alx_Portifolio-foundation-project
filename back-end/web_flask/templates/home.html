@@ -3,7 +3,6 @@
     <head>
         <link rel="shortcut icon" href="{{ url_for('static', filename='images/in-stock.png') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/home-style.css') }}">
-        <!--<script src="{{ url_for('static', filename='scripts/home.js') }}"></script>-->
         <link href="https://fonts.cdnfonts.com/css/abnes" rel="stylesheet">
         <style>
         @import url('https://fonts.cdnfonts.com/css/abnes');
@@ -26,7 +25,7 @@
                 <li><a href="sales"><img src="{{ url_for('static', filename='images/line-chart.png') }}" alt=""></a></li>
                 <li><a href="out_going" ><img src="{{ url_for('static', filename='images/transaction.png') }}" alt=""></a></li>
                 <li><a href="pie"><img src="{{ url_for('static', filename='images/pie-chart.png') }}" alt=""></a></li>
-                <li><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></li>
+                <li><a href="index"><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></a></li>
                 <!-- Add more links as needed -->
             </ul>
         </div>
@@ -34,66 +33,69 @@
             <div id="container-1">
                 <img src="{{ url_for('static', filename='images/login-icon.jpeg') }}" alt="">
                 <div id="text-container">
-                    <p>Username:{{ x[0] }}</p>
+                    <p>Username:<p1>{{ x[0] }}</p1></p>
                     <p>Date:{{ x[1] }}</p>
                 </div>
             </div>
             <div id="container-2">
-            <p>Sale</p>
-            <div id="hidden">
-                <div class="input">
-                    <label for="sale-item-name">Item name</label>
-                    <input list="item-name" id="sale-item-name" name="item-name" required>
-                    <datalist id="item-name">
-                        {% for item in p %}
-                        <option value="{{ item[1] }}">
-                        {% endfor %}
-                    </datalist>
-                </div>
-                <div class="Amount">
-                    <label for="sale-amount">Amount*</label>
-                    <input type="text" id="sale-amount" required>
-                    <label for="sale-category">Category</label>
-                    <input list="categories" id="sale-category" name="category" required>
-                    <datalist id="categories">
-                        {% for item in n %}
-                        <option value="{{ item[1] }}">
-                        {% endfor %}
-                    </datalist>
-                    <label for="sale-quantity">Quantity</label>
-                    <input type="text" id="sale-quantity" required>
-                    <label for="sale-price">Price</label>
-                    <input type="text" id="sale-price" required>
-                    <button>Sale</button>
+                <p>Sale</p>
+                <div id="hidden">
+                    <form method="post" action="https://example.com/api/endpoint">
+                        <div class="input">
+                            <label for="sale-item-name">Item name</label>
+                            <input list="item-name" id="sale-item-name" name="item-name" required>
+                            <datalist id="item-name">
+                                {% for item in p %}
+                                <option value="{{ item[1] }}">
+                                {% endfor %}
+                            </datalist>
+                        </div>
+                        <div class="Amount">
+                            <label for="sale-quantity">Quantity*</label>
+                            <input type="text" id="sale-quantity" required>
+                            <label for="sale-price">Amount*</label>
+                            <input type="text" id="sale-price" required>
+                            <label for="sale-Payment">Payment</label>
+                            <input list="Payment" id="sale-Payment" name="Payment" required>
+                            <datalist id="Payment">
+                                <option value="Cash">
+                                <option value="Mobile Money">
+                                <option value="Pos">
+                            </datalist>
+                            <button type="submit">Sale</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
             <div id="container-3"></div>
-        <div id="container-3">
-            <p>New - Item</p>
-            <div id="hidden">
-                <div class="input">
-                    <label for="new-item-name">Item name</label>
-                    <input list="item-name" id="new-item-name" name="item-name" required>
-                    <datalist id="item-name">
-                        {% for item in p %}
-                        <option value="{{ item[1] }}">
-                        {% endfor %}
-                    </datalist>
-                </div>
-                <div class="category">
-                    <label for="new-item-category">Category</label>
-                    <input list="categories" id="new-item-category" name="category" required>
-                    <datalist id="categories">
-                        {% for item in n %}
-                        <option value="{{ item[1] }}">
-                        {% endfor %}
-                    </datalist>
-                </div>
+            <div id="container-3">
+                <form method="post" action="http://localhost:5000/api/v1/post/new_item">
+                    <p>New - Item</p>
+                    <div id="hidden">
+                        <div class="input">
+                            <label for="new-item-name">Item name</label>
+                            <input list="item-name" id="new-item-name" name="item-name" required>
+                            <datalist id="item-name">
+                                {% for item in p %}
+                                <option value="{{ item[1] }}">
+                                {% endfor %}
+                            </datalist>
+                        </div>
+                        <div class="category">
+                            <label for="new-item-category">Category</label>
+                            <input list="categories" id="new-item-category" name="category" required>
+                            <datalist id="categories">
+                                {% for item in n %}
+                                <option value="{{ item[1] }}">
+                                {% endfor %}
+                            </datalist>
+                        </div>
+                    </div>
+                    <label for="new-item-quantity">Quantity*</label>
+                    <input type="text" id="new-item-quantity" name= "quantity" required>
+                    <button type="submit">Add</button>
+                </form>
             </div>
-            <label for="new-item-quantity">Quantity</label>
-            <input type="text" id="new-item-quantity" required>
-            <button>Add</button>
         </div>
         <div id="container-4">
             <p>Outgoing - Item</p>
@@ -115,14 +117,26 @@
                     {% endfor %}
                 </datalist>
                 <div class="Amount">
-                    <label for="outgoing-category">Category</label>
-                    <input list="categories" id="outgoing-category" name="category" required>
-                    <datalist id="categories">
-                        {% for item in n %}
+                    <label for="outgoing-quantity">Quantity*</label>
+                    <input type="text" id="outgoing-quantity" name="new-item-quantity" required>
+                    <button>Insert</button>
+                </div>
+            </div>
+        </div>
+        <div id="container-5">
+            <p>Existing - Item</p>
+            <div id="hidden">
+                <div class="input">
+                    <label for="outgoing-item-name">Item name</label>
+                    <input list="item-name" id="outgoing-item-name" name="item-name" required>
+                    <datalist id="item-name">
+                        {% for item in p %}
                         <option value="{{ item[1] }}">
                         {% endfor %}
                     </datalist>
-                    <label for="outgoing-quantity">Quantity</label>
+                </div>
+                <div class="Amount">
+                    <label for="outgoing-quantity">Quantity*</label>
                     <input type="text" id="outgoing-quantity" required>
                     <button>Insert</button>
                 </div>

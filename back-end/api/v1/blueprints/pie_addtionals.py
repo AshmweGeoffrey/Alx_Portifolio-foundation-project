@@ -36,3 +36,12 @@ def out_going():
         for j in i:
             out_going = j
     return jsonify(out_going)
+@api.route('/pie/payment', methods=['GET'])
+def payment():
+    c={}
+    payment = storage.command('SELECT name,total_weekly FROM payment_method;').fetchall()
+    total = storage.command('SELECT SUM(total_weekly) FROM payment_method;').fetchall()[0][0]
+    for pay ,amount in payment:
+        c[pay]=amount
+    c['total']=total
+    return jsonify(c)
