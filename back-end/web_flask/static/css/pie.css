@@ -10,7 +10,7 @@
 #pie p {
     font-style: italic;
     font-size: 15px;
-    padding: 0px;
+    padding: 4px;
 }
 #tot-sales {
     display: flex;
@@ -20,7 +20,7 @@
     bottom: 2.5%;
     border:1px solid #00BF63;
     width: 200px; /* Adjust as needed */
-    height: 56%;
+    height: 62%;
     padding: 10px;
     background-color: #f8f8f8; /* Light gray background */
     border: 1px solid #59bee6; /* Light gray border */
@@ -64,4 +64,7 @@
     border: 1px solid #ecd341;
     border-radius: 4px;
     margin: 3px;
+}
+#exo {
+    display: none;
 }

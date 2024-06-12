@@ -1,6 +1,5 @@
 
-
-const data = {s: 65, no: 50, ty: 5};
+const data = {s: 2, no: 10, ty: 6};
 
         const labels = Object.keys(data);
         const values = Object.values(data);

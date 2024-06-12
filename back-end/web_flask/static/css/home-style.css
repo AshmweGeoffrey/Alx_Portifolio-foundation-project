@@ -130,8 +130,10 @@ header img {
     top: 190px;
     left: 100px;
     background-color: #f8f8f8;
-    border: 1px solid #ddd; /* Light gray border */
+    border: 1px solid #00BF63; /* Light gray border */
     border-radius: 4px;
+    width: auto;
+    height: auto;
 }
 
 #table table {

@@ -1,8 +1,6 @@
-const data = {s: 65, no: 50, ty: 5};
-
+const data = JSON.parse(document.getElementById('exo').textContent.replace(/'/g, '"'));
         const labels = Object.keys(data);
         const values = Object.values(data);
-
         const ctx = document.getElementById('myPieChart').getContext('2d');
         const myPieChart = new Chart(ctx, {
             type: 'pie',

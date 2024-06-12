@@ -15,7 +15,12 @@ def sales():
     return render_template('sales.html',x=send_sales)
 @app.route('/pie')
 def pie():
-    return render_template('pie.html')
+    send_days=dict(get('http://localhost:5000/api/v1/pie/days').json())
+    send_total_weeekly_items=get('http://localhost:5000/api/v1/pie/total_weeekly_items').json()
+    send_category_percentage=dict(get('http://localhost:5000/api/v1/category/percentage').json())
+    send_best_selling=get('http://localhost:5000/api/v1/pie/best_selling').json()
+    send_out_going=get('http://localhost:5000/api/v1/pie/out_going').json()
+    return render_template('pie.html',x=send_category_percentage,total_weekly=send_total_weeekly_items,days=send_days,best=send_best_selling,out_going=send_out_going)
 @app.route('/inventory')
 def inventory():
     send_inventory=get('http://localhost:5000/api/v1/inventory').json()

@@ -1,4 +1,3 @@
-const data = {s: 65, no: 50, ty: 5};
 
         const labels = Object.keys(data);
         const values = Object.values(data);

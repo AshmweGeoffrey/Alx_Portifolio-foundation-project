@@ -6,3 +6,4 @@ from api.v1.blueprints.outgoing import *
 from api.v1.blueprints.user import *
 from api.v1.blueprints.category import *
 from api.v1.blueprints.branch import *
+from api.v1.blueprints.pie_addtionals import *
