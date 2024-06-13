@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="stylesheet" href="style/style.css">
+    <title>Login</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/in-stock.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home-style.css') }}">
     <style>
         @import url('https://fonts.cdnfonts.com/css/abnes');
 
@@ -14,6 +16,7 @@
         </style>
 </head>
 <body>
+    <header><img src="{{ url_for('static', filename='images/in-stock.png') }}" alt=""> AX</header>
     <div class="login-container">
         <h2>Login</h2>
         <form id="loginForm" action="/login" method="POST">
@@ -24,11 +27,11 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <p id="error">{{ error }}</p>
             </div>
             <button type="submit">Login</button>
         </form>
         <div id="errorMessage" class="error-message"></div>
     </div>
-    <script src="scripts.js"></script>
 </body>
 </html>

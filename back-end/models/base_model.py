@@ -32,9 +32,13 @@ class BaseModel:
     def save(self):
         models.storage.new(self)
         models.storage.save()
-    def select_all(self):
+    def select_all(self,order):
         table_name=self.__tablename__
-        result=models.storage.command("SELECT * FROM {:s}".format(table_name))
+        if order is None:
+            query="SELECT * FROM {:s}".format(table_name)
+        else:
+            query="SELECT * FROM {:s} {:s}".format(table_name,order)
+        result=models.storage.command(query)
         main_list=[]
         inner_list=[]
         for  i in result.fetchall():

@@ -8,10 +8,10 @@ class sale_weekly(BaseModel,Base):
     __tablename__ = 'sale_weekly'
     id = Column(String(50),primary_key=True,nullable=False)
     item_name = Column(String(64),ForeignKey('inventory.name'),unique=True)
-    category = Column(String(32),ForeignKey('inventory.category_name'))
     quantity = Column(Integer,nullable=False,default=1)
     price = Column(Integer,nullable=False,default=0)
     user_name = Column(String(32),ForeignKey('user.name'),unique=True)
+    payment_method = Column(String(50),nullable=False)
     time_stamp = Column(DateTime,unique=True)
     def __init__(self,*args,**kwargs):
         kwargs['time_stamp']=datetime.now()

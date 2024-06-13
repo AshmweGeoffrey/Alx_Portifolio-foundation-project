@@ -25,7 +25,7 @@
                 <li><a href="sales"><img src="{{ url_for('static', filename='images/line-chart.png') }}" alt=""></a></li>
                 <li><a href="out_going" ><img src="{{ url_for('static', filename='images/transaction.png') }}" alt=""></a></li>
                 <li><a href="pie"><img src="{{ url_for('static', filename='images/pie-chart.png') }}" alt=""></a></li>
-                <li><a href="index"><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></a></li>
+                <li><a href="logout"><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></a></li>
                 <!-- Add more links as needed -->
             </ul>
         </div>
@@ -40,7 +40,7 @@
             <div id="container-2">
                 <p>Sale</p>
                 <div id="hidden">
-                    <form method="post" action="https://example.com/api/endpoint">
+                    <form method="post" action="http://localhost:5000/api/v1/post/sale">
                         <div class="input">
                             <label for="sale-item-name">Item name</label>
                             <input list="item-name" id="sale-item-name" name="item-name" required>
@@ -52,9 +52,9 @@
                         </div>
                         <div class="Amount">
                             <label for="sale-quantity">Quantity*</label>
-                            <input type="text" id="sale-quantity" required>
+                            <input type="text" id="sale-quantity" name="sale-quantity" required>
                             <label for="sale-price">Amount*</label>
-                            <input type="text" id="sale-price" required>
+                            <input type="text" id="sale-price" name ="sale-price"required>
                             <label for="sale-Payment">Payment</label>
                             <input list="Payment" id="sale-Payment" name="Payment" required>
                             <datalist id="Payment">
@@ -67,7 +67,6 @@
                     </form>
                 </div>
             </div>
-            <div id="container-3"></div>
             <div id="container-3">
                 <form method="post" action="http://localhost:5000/api/v1/post/new_item">
                     <p>New - Item</p>
@@ -98,6 +97,7 @@
             </div>
         </div>
         <div id="container-4">
+            <form method="post" action="http://localhost:5000/api/v1/post/outgoing">
             <p>Outgoing - Item</p>
             <div id="hidden">
                 <div class="input">
@@ -119,11 +119,13 @@
                 <div class="Amount">
                     <label for="outgoing-quantity">Quantity*</label>
                     <input type="text" id="outgoing-quantity" name="new-item-quantity" required>
-                    <button>Insert</button>
+                    <button type="submit">Insert</button>
                 </div>
             </div>
+        </form>
         </div>
         <div id="container-5">
+            <form method="post" action="http://localhost:5000/api/v1/post/existing">
             <p>Existing - Item</p>
             <div id="hidden">
                 <div class="input">
@@ -137,10 +139,11 @@
                 </div>
                 <div class="Amount">
                     <label for="outgoing-quantity">Quantity*</label>
-                    <input type="text" id="outgoing-quantity" required>
-                    <button>Insert</button>
+                    <input type="text" id="outgoing-quantity" name="Existing-quantity" required>
+                    <button type="submit">Insert</button>
                 </div>
             </div>
+        </form>
         </div>
     </body>
 </html>
