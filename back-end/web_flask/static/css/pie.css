@@ -1,5 +1,5 @@
 #pie {
-    position: absolute;
+    position: fixed;
     width: 25%; 
     margin: auto;
     right: 80px;
@@ -15,7 +15,7 @@
 #tot-sales {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
+    position: fixed;
     left: 200px;
     bottom: 2.5%;
     border:1px solid #00BF63;
@@ -34,7 +34,7 @@
 #tot-icons {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
+    position: fixed;
     left: 89px;
     bottom: 2.5%;
     border:1px solid #00BF63;

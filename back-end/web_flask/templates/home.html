@@ -11,6 +11,7 @@
             font-family: 'abnes', sans-serif;
         }
         </style>
+        <script src="{{ url_for('static', filename='scripts/button.js') }}"></script>
         <title>
             Ax Stock
         </title>
@@ -19,7 +20,7 @@
         <header><img src="{{ url_for('static', filename='images/in-stock.png') }}" alt=""> AX</header>
         <div id="sidebar">
             <ul>
-                <li><a href="index"><img src="{{ url_for('static', filename='images/in-stock.png') }}" alt="" id="in-stock"></a></li>
+                <li><a href="/"><img src="{{ url_for('static', filename='images/in-stock.png') }}" alt="" id="in-stock"></a></li>
                 <li><a href="home"><img src="{{ url_for('static', filename='images/home.png') }}" alt=""></a></li>
                 <li><a href="inventory"><img src="{{ url_for('static', filename='images/table.png') }}" alt=""></a></li>
                 <li><a href="sales"><img src="{{ url_for('static', filename='images/line-chart.png') }}" alt=""></a></li>
@@ -28,6 +29,9 @@
                 <li><a href="logout"><img src="{{ url_for('static', filename='images/logout.png') }}" alt="" id="logout" ></a></li>
                 <!-- Add more links as needed -->
             </ul>
+        </div>
+        <div>
+            <button>Menu</button>
         </div>
         <div id="container">
             <div id="container-1">
@@ -62,7 +66,8 @@
                                 <option value="Mobile Money">
                                 <option value="Pos">
                             </datalist>
-                            <button type="submit">Sale</button>
+                            <input type="hidden" id="outgoing-quantity" name="username" value="{{ username }}" required>
+                            <button type="submit" id="sale-button">Sale</button>
                         </div>
                     </form>
                 </div>
@@ -92,7 +97,7 @@
                     </div>
                     <label for="new-item-quantity">Quantity*</label>
                     <input type="text" id="new-item-quantity" name= "quantity" required>
-                    <button type="submit">Add</button>
+                    <button type="submit" id="add-button">Add -new item</button>
                 </form>
             </div>
         </div>
@@ -119,7 +124,9 @@
                 <div class="Amount">
                     <label for="outgoing-quantity">Quantity*</label>
                     <input type="text" id="outgoing-quantity" name="new-item-quantity" required>
-                    <button type="submit">Insert</button>
+                    <input type="hidden" id="outgoing-quantity" name="username" value="{{ username }}" required>
+                    <button type="submit" id="outgoing-button">Approve</button>
+                    
                 </div>
             </div>
         </form>
@@ -140,10 +147,31 @@
                 <div class="Amount">
                     <label for="outgoing-quantity">Quantity*</label>
                     <input type="text" id="outgoing-quantity" name="Existing-quantity" required>
-                    <button type="submit">Insert</button>
+                    <button type="submit" id="existing-insert-button">Add</button>
                 </div>
             </div>
         </form>
         </div>
+        <script>
+    // Target the "Sale" button
+    document.getElementById('sale-button').addEventListener('click', function() {
+        alert('Success');
+    });
+
+    // Target the "Add" button
+    document.getElementById('add-button').addEventListener('click', function() {
+        alert('Success');
+    });
+
+    // Target the "Insert" button in the "Outgoing - Item" section
+    document.getElementById('outgoing-button').addEventListener('click', function() {
+        alert('Success');
+    });
+
+    // Target the "Insert" button in the "Existing - Item" section
+    document.getElementById('existing-insert-button').addEventListener('click', function() {
+        alert('Success');
+    });
+</script>
     </body>
 </html>

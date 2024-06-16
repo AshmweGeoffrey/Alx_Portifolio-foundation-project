@@ -1,0 +1,98 @@
+ubuntu@314478-web-01:/myflaskapp/web_flask$ l
+__init__.py  __pycache__/  app.log  app1.py  form.py  myflaskapp-main.sock=  nohup.out  static/  templates/  web.log  x.js
+ubuntu@314478-web-01:/myflaskapp/web_flask$ cd 
+ubuntu@314478-web-01:~$ cd 
+ubuntu@314478-web-01:~$ cd etc
+-bash: cd: etc: No such file or directory
+ubuntu@314478-web-01:~$ cd /etc/systemd/system/
+ubuntu@314478-web-01:/etc/systemd/system$ l
+ apparmor.service@                             snap-core18-2823.mount
+ apport-autoreport.path@                       snap-core20-2264.mount
+ apport-forward.socket@                        snap-core20-2318.mount
+ cloud-config.service@                         snap-lxd-22753.mount
+ cloud-final.service@                          snap-lxd-24061.mount
+ cloud-final.service.wants/                    snap-snapd-21465.mount
+ cloud-init-hotplugd.socket@                   snap-snapd-21759.mount
+ cloud-init-local.service@                     snap.amazon-ssm-agent.amazon-ssm-agent.service
+ cloud-init.service@                           snap.lxd.activate.service
+ cloud-init.target.wants/                      snap.lxd.daemon.service
+ dbus-org.freedesktop.ModemManager1.service@   snap.lxd.daemon.unix.socket
+ dbus-org.freedesktop.resolve1.service@        snapd.apparmor.service@
+ dbus-org.freedesktop.timesync1.service@       snapd.autoimport.service@
+ default.target.wants/                         snapd.core-fixup.service@
+ emergency.target.wants/                       snapd.mounts.target.wants/
+ final.target.wants/                           snapd.recovery-chooser-trigger.service@
+ getty.target.wants/                           snapd.seeded.service@
+ graphical.target.wants/                       snapd.service@
+ hibinit-agent.service@                        snapd.snap-repair.timer@
+ iscsi.service@                                snapd.socket@
+ mdmonitor.service.wants/                      snapd.system-shutdown.service@
+ multi-user.target.wants/                      sockets.target.wants/
+ multipath-tools.service@                     'sshd-keygen@.service.d'/
+ myflaskapp-api.service                        sshd.service@
+ myflaskapp-main.service                       sysinit.target.wants/
+ network-online.target.wants/                  syslog.service@
+ networkd-dispatcher.service@                  timers.target.wants/
+ open-vm-tools.service@                        ua-reboot-cmds.service@
+ open-vm-tools.service.requires/               ua-timer.timer@
+ paths.target.wants/                           ubuntu-advantage.service@
+ rescue.target.wants/                          ufw.service@
+ sleep.target.wants/                           unattended-upgrades.service@
+'snap-amazon\x2dssm\x2dagent-6312.mount'       vgauth.service@
+'snap-amazon\x2dssm\x2dagent-7993.mount'       vmtoolsd.service@
+ snap-core18-2566.mount
+ubuntu@314478-web-01:/etc/systemd/system$ cat myflaskapp-api.service 
+[Unit]
+Description=Gunicorn instance to serve Flask API
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/myflaskapp
+Environment="PATH=/home/ubuntu/venv/bin"
+ExecStart=/home/ubuntu/myflaskenv/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target
+
+ubuntu@314478-web-01:/etc/systemd/system$ cat myflaskapp-main.service 
+[Unit]
+Description=Gunicorn instance to serve Flask API
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/myflaskapp/web_flask
+ExecStart=/home/ubuntu/myflaskenv/bin/gunicorn --workers 3 --bind unix:/myflaskapp/web_flask/myflaskapp-main.sock -m 007 app1:app
+
+[Install]
+WantedBy=multi-user.target
+ubuntu@314478-web-01:/etc/systemd/system$ cd ../../nginx/sites-available/
+ubuntu@314478-web-01:/etc/nginx/sites-available$ ls
+default  myflaskapp
+ubuntu@314478-web-01:/etc/nginx/sites-available$ cat myflaskapp 
+server {
+    listen 80;
+    server_name your_domain.com;
+
+    location /api {
+        proxy_pass http://localhost:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location / {
+        proxy_pass http://unix:/myflaskapp/web_flask/myflaskapp-main.sock;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+ubuntu@314478-web-01:/etc/nginx/sites-available$ 
+
+
