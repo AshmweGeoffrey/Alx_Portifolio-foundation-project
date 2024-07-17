@@ -12,6 +12,7 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         Session = sessionmaker(bind=self.__engine)
         self.__session = Session()
+        self.engine= self.__engine
     def all(self, cls):
         if cls:
             return self.__session.query(cls).all()

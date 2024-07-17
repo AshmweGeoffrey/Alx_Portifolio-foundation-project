@@ -1,4 +1,5 @@
-from flask import Blueprint, jsonify, request, redirect, session
+from flask import Blueprint, jsonify, request, redirect, session,send_file
+import pandas as pd
 from models.inventory_model import inventory
 from models.outgoing_stock import outgoing_stock
 from models.sale_weekly import sale_weekly
@@ -6,6 +7,11 @@ from . import api
 from flask_cors import CORS
 from models import storage
 from requests import get
+import io
+import os
+from openpyxl.styles import Font, PatternFill, Border, Side
+from openpyxl.utils import get_column_letter
+from datetime import datetime
 CORS(api)
 @api.route('/post/new_item', methods=['POST'])
 def post_new_item():
@@ -97,3 +103,89 @@ def login_send():
     res = storage.command("SELECT * FROM user").fetchall()
     users = {user[1]: user[2] for user in res}
     return jsonify(users)
+@api.route('/post/download', methods=['POST', 'GET'])
+def download():
+    excel_file, filename = generate_weekly_report()
+    if excel_file and filename:
+        return send_file(
+            excel_file,
+            mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            as_attachment=True,
+            download_name=filename
+        )
+    else:
+        return jsonify({"error": "Failed to generate report"}), 500
+import pandas as pd
+from sqlalchemy import create_engine
+import io
+from openpyxl.styles import Font, PatternFill, Border, Side
+from openpyxl.utils import get_column_letter
+import os
+from datetime import datetime
+
+def generate_weekly_report():
+    try:
+        # Create a database connection
+        engine = storage.engine
+
+        # Read the tables into pandas DataFrames
+        df_sale_weekly = pd.read_sql_table('sale_weekly', engine)
+        df_outgoing_stock = pd.read_sql_table('outgoing_stock', engine)
+        df_inventory = pd.read_sql_table('inventory', engine)
+
+        # Create a BytesIO object to store the Excel file
+        output = io.BytesIO()
+
+        # Generate a timestamp for the filename
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        filename = "weekly_report_{t}.xlsx".format(t=timestamp)
+
+        # Use pandas to write the DataFrames to an Excel file
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
+            # Write each DataFrame to a separate sheet
+            df_sale_weekly.to_excel(writer, sheet_name='Sale Weekly', index=False)
+            df_outgoing_stock.to_excel(writer, sheet_name='Outgoing Stock', index=False)
+            df_inventory.to_excel(writer, sheet_name='Inventory', index=False)
+
+            # Get the workbook
+            workbook = writer.book
+
+            # Format function
+            def format_sheet(worksheet):
+                for col in worksheet.columns:
+                    max_length = 0
+                    column = col[0].column_letter  # Get the column name
+                    for cell in col:
+                        try:
+                            if len(str(cell.value)) > max_length:
+                                max_length = len(cell.value)
+                        except:
+                            pass
+                    adjusted_width = (max_length + 2)
+                    worksheet.column_dimensions[column].width = adjusted_width
+
+                # Format header
+                for cell in worksheet[1]:
+                    cell.font = Font(bold=True)
+                    cell.fill = PatternFill(start_color='D7E4BC', end_color='D7E4BC', fill_type='solid')
+                    cell.border = Border(left=Side(style='thin'), right=Side(style='thin'), 
+                                         top=Side(style='thin'), bottom=Side(style='thin'))
+
+            # Apply formatting to each sheet
+            format_sheet(workbook['Sale Weekly'])
+            format_sheet(workbook['Outgoing Stock'])
+            format_sheet(workbook['Inventory'])
+
+        # Save the file locallyi
+        save_path = os.path.join('Reports', filename)
+        with open(save_path, 'wb') as f:
+            f.write(output.getvalue())
+
+        # Seek to the beginning of the stream
+        output.seek(0)
+
+        return output, filename
+
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        return None, None
