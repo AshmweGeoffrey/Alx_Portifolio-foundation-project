@@ -37,108 +37,153 @@
                 <p>Date</p>
             </div>
         </div>
-        <div id="container-2">
-            <p>Sale</p>
-            <div id="hidden">
-                <div class="input">
-                    <label for="sale-item-name">Item name</label>
-                    <input list="item-name" id="sale-item-name" name="item-name" required>
-                    <datalist id="item-name">
-                        <option value="Electronics">
-                        <option value="Clothing">
-                        <option value="Food">
-                        <option value="Stationery">
-                        <option value="Furniture">
-                    </datalist>
-                </div>
-                <div class="Amount">
-                    <label for="sale-amount">Amount*</label>
-                    <input type="text" id="sale-amount" required>
-                    <label for="sale-category">Category</label>
-                    <input list="categories" id="sale-category" name="category" required>
-                    <datalist id="categories">
-                        <option value="Electronics">
-                        <option value="Clothing">
-                        <option value="Food">
-                        <option value="Stationery">
-                        <option value="Furniture">
-                    </datalist>
-                    <label for="sale-quantity">Quantity</label>
-                    <input type="text" id="sale-quantity" required>
-                    <label for="sale-price">Price</label>
-                    <input type="text" id="sale-price" required>
-                    <button>Sale</button>
-                </div>
+        <div id="new_shit">
+        <div id="second_shit">
+    <div class="checkbox-container">
+        <div id="checkbox1" class="checkbox black"></div>
+        <div id="checkbox2" class="checkbox red"></div>
+        <div id="checkbox3" class="checkbox green"></div>
+        <div id="checkbox4" class="checkbox blue"></div>
+        <div id="checkbox5" class="checkbox yellow"></div>
+        <div id="checkbox6" class="checkbox orange"></div>
+        <div id="checkbox7" class="checkbox orange"></div>
+    </div>
+
+    <div id="form1" class="form-container">
+        <h2>Download Page</h2>
+        <form>
+            <label for="downloadButton">Download Current Week Report:</label>
+            <button type="button" id="downloadButton">Download</button>
+            <div class="legend-container">
+                <div class="legend red"><div class="legend-box"></div>Sale</div>
+                <div class="legend green"><div class="legend-box"></div>New - Item</div>
+                <div class="legend blue"><div class="legend-box"></div>Outgoing - Item</div>
+                <div class="legend yellow"><div class="legend-box"></div>Existing - Item</div>
+                <div class="legend orange"><div class="legend-box"></div>Remark</div>
+                <div class="legend orange"><div class="legend-box"></div>Temporary update</div>
             </div>
-        </div>
-        <div id="container-3">
-            <p>New - Item</p>
-            <div id="hidden">
-                <div class="input">
-                    <label for="new-item-name">Item name</label>
-                    <input list="item-name" id="new-item-name" name="item-name" required>
-                    <datalist id="item-name">
-                        <option value="Electronics">
-                        <option value="Clothing">
-                        <option value="Food">
-                        <option value="Stationery">
-                        <option value="Furniture">
-                    </datalist>
-                </div>
-                <div class="category">
-                    <label for="new-item-category">Category</label>
-                    <input list="categories" id="new-item-category" name="category" required>
-                    <datalist id="categories">
-                        <option value="Electronics">
-                        <option value="Clothing">
-                        <option value="Food">
-                        <option value="Stationery">
-                        <option value="Furniture">
-                    </datalist>
-                </div>
-            </div>
-            <label for="new-item-quantity">Quantity</label>
-            <input type="text" id="new-item-quantity" required>
-            <button>Add</button>
-        </div>
-        <div id="container-4">
-            <p>Outgoing - Item</p>
+        </form>
+    </div>
+
+    <div id="form2" class="form-container">
+        <h2>Sale</h2>
+                    <form method="post" action="http://localhost:5000/api/v1/post/sale">
+                        <div class="input">
+                            <label for="sale-item-name">Item name</label>
+                            <input list="item-name" id="sale-item-name" name="item-name" required>
+                            <datalist id="item-name">
+                                {% for item in p %}
+                                <option value="{{ item[1] }}">
+                                {% endfor %}
+                            </datalist>
+                            <label for="sale-quantity">Quantity*</label>
+                            <input type="text" id="sale-quantity" name="sale-quantity" required>
+                            <label for="sale-price">Amount*</label>
+                            <input type="text" id="sale-price" name ="sale-price"required>
+                            <label for="sale-Payment">Payment</label>
+                            <input list="Payment" id="sale-Payment" name="Payment" required>
+                            <datalist id="Payment">
+                                <option value="Cash">
+                                <option value="Mobile Money">
+                                <option value="Pos">
+                            </datalist>
+                            <input type="hidden" id="outgoing-quantity" name="username" value="{{ username }}" required>
+                            <button type="submit" id="sale-button">  Conduct New-Sale</button>
+                        </div>
+                    </form>
+    </div>
+    <div id="form3" class="form-container">
+        <form method="post" action="http://localhost:5000/api/v1/post/new_item">
+                    <h2>New - Item</h2>
+                    <div id="hidden">
+                        <div class="input">
+                            <label for="new-item-name">Item name</label>
+                            <input list="item-name" id="new-item-name" name="item-name" required>
+                            <datalist id="item-name">
+                                {% for item in p %}
+                                <option value="{{ item[1] }}">
+                                {% endfor %}
+                            </datalist>
+                        </div>
+                        <div class="category">
+                            <label for="new-item-category">Category</label>
+                            <input list="categories" id="new-item-category" name="category" required>
+                            <datalist id="categories">
+                                {% for item in n %}
+                                <option value="{{ item[1] }}">
+                                {% endfor %}
+                            </datalist>
+                        </div>
+                    </div>
+                    <label for="new-item-quantity">Quantity*</label>
+                    <input type="text" id="new-item-quantity" name= "quantity" required>
+                    <button type="submit" id="add-button">Add -new item</button>
+                </form>
+    </div>
+
+    <div id="form4" class="form-container">
+        <form method="post" action="http://localhost:5000/api/v1/post/outgoing">
+            <h2>Outgoing - Item</h2>
             <div id="hidden">
                 <div class="input">
                     <label for="outgoing-item-name">Item name</label>
                     <input list="item-name" id="outgoing-item-name" name="item-name" required>
                     <datalist id="item-name">
-                        <option value="Electronics">
-                        <option value="Clothing">
-                        <option value="Food">
-                        <option value="Stationery">
-                        <option value="Furniture">
+                        {% for item in p %}
+                        <option value="{{ item[1] }}">
+                        {% endfor %}
                     </datalist>
                 </div>
                 <label for="outgoing-branch">Branch</label>
                 <input list="Branch" id="outgoing-branch" name="Branch" required>
                 <datalist id="Branch">
-                    <option value="Electronics">
-                    <option value="Clothing">
-                    <option value="Food">
-                    <option value="Stationery">
-                    <option value="Furniture">
+                    {% for item in l %}
+                    <option value="{{ item[1] }}">
+                    {% endfor %}
                 </datalist>
                 <div class="Amount">
-                    <label for="outgoing-category">Category</label>
-                    <input list="categories" id="outgoing-category" name="category" required>
-                    <datalist id="categories">
-                        <option value="Electronics">
-                        <option value="Clothing">
-                        <option value="Food">
-                        <option value="Stationery">
-                        <option value="Furniture">
-                    </datalist>
-                    <label for="outgoing-quantity">Quantity</label>
-                    <input type="text" id="outgoing-quantity" required>
-                    <button>Insert</button>
+                    <label for="outgoing-quantity">Quantity*</label>
+                    <input type="text" id="outgoing-quantity" name="new-item-quantity" required>
+                    <input type="hidden" id="outgoing-quantity" name="username" value="{{ username }}" required>
+                    <button type="submit" id="outgoing-button">Approve</button>
+                    
                 </div>
             </div>
-        </div>
+        </form>
+    </div>
+
+    <div id="form5" class="form-container">
+        <form method="post" action="http://localhost:5000/api/v1/post/existing">
+            <h2>Existing - Item</h2>
+            <div id="hidden">
+                <div class="input">
+                    <label for="outgoing-item-name">Item name</label>
+                    <input list="item-name" id="outgoing-item-name" name="item-name" required>
+                    <datalist id="item-name">
+                        {% for item in p %}
+                        <option value="{{ item[1] }}">
+                        {% endfor %}
+                    </datalist>
+                </div>
+                <div class="Amount">
+                    <label for="outgoing-quantity">Quantity*</label>
+                    <input type="text" id="outgoing-quantity" name="Existing-quantity" required>
+                    <button type="submit" id="existing-insert-button">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="form6" class="form-container">
+        <h2>Remark</h2>
+        <form>
+            <label for="input5-1">Remark/Notice(Reporting):</label>
+            <input type="text" id="input5-1" name="input5-1">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="script/script1.js"></script>
+    </div>
+    </div>
     </body>
 </html>

@@ -35,8 +35,9 @@ def main():
     send=get('{}/user/{}'.format(local_api_url,session['user'])).json()
     send_category=get('{}/category'.format(local_api_url)).json()
     send_branch=get('{}/branch'.format(local_api_url)).json()
+    send_remak=get('{}/remarks'.format(local_api_url)).json()
     username=session['user']
-    return render_template('home.html',x=send,p=send_inventory,n=send_category,l=send_branch,username=username) 
+    return render_template('home.html',x=send,p=send_inventory,n=send_category,l=send_branch,username=username,t=send_remak) 
 @app.route('/sales')
 def sales():
     if 'user' not in session:

@@ -197,3 +197,116 @@ header img {
     display: none; 
     width: 200px;
 }*/
+#new_shit
+{
+    left: 10%;
+    position:absolute;
+    border-radius: 12px;
+    border:1px solid #00BF63;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    height:70%;
+    top: 25%;
+}
+#second_shit
+{ 
+  padding: 10px; 
+}
+
+        .checkbox-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            border: 2px solid;
+            border-radius: 4px;
+            position: relative;
+            cursor: pointer;
+        }
+        .checkbox::after {
+            content: 'x';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            display: none;
+            color: white;
+        }
+        .checkbox.red { border-color: red; }
+        .checkbox.green { border-color: green; }
+        .checkbox.blue { border-color: blue; }
+        .checkbox.yellow { border-color: yellow; }
+        .checkbox.orange { border-color: orange; }    
+        .checkbox.black { border-color: black; }
+        .checkbox.active::after {
+            display: block;
+        }
+        .checkbox.active.red { background-color: red; }
+        .checkbox.active.green { background-color: green; }
+        .checkbox.active.blue { background-color: blue; }
+        .checkbox.active.yellow { background-color: yellow; }
+        .checkbox.active.orange { background-color: orange; }
+        .checkbox.active.black { background-color: black; }
+        .form-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .form-container.active {
+            display: block;
+        }
+        .form-container input{
+            margin-top: 5%;
+            margin-bottom: 5%;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            height: 25px;
+            padding-left: 3px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+        }
+        label {
+            font-weight: bold;
+        }
+        button[type="submit"], button[type="button"] {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #45a049;
+        }
+        .legend-container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .legend {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border: 2px solid;
+        }
+        .legend.red .legend-box { border-color: red; background-color: red; }
+        .legend.green .legend-box { border-color: green; background-color: green; }
+        .legend.blue .legend-box { border-color: blue; background-color: blue; }
+        .legend.yellow .legend-box { border-color: yellow; background-color: yellow; }
+        .legend.orange .legend-box { border-color: orange; background-color: orange; }
+        .legend.black .legend-box { border-color: black; background-color: black; }
+        

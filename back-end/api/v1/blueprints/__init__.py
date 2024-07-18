@@ -8,3 +8,4 @@ from api.v1.blueprints.category import *
 from api.v1.blueprints.branch import *
 from api.v1.blueprints.pie_addtionals import *
 from api.v1.blueprints.post import *
+from api.v1.blueprints.remark import *

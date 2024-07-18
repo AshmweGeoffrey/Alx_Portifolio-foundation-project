@@ -3,6 +3,7 @@ import pandas as pd
 from models.inventory_model import inventory
 from models.outgoing_stock import outgoing_stock
 from models.sale_weekly import sale_weekly
+from models.remark import remark
 from . import api
 from flask_cors import CORS
 from models import storage
@@ -12,6 +13,7 @@ import os
 from openpyxl.styles import Font, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
 from datetime import datetime
+from sqlalchemy import create_engine
 CORS(api)
 @api.route('/post/new_item', methods=['POST'])
 def post_new_item():
@@ -78,7 +80,6 @@ def post_sale():
             'user_name': user_name,
             'payment_method': payment_method
         }
-    print(response)
     sale= sale_weekly(**response)
     sale.save()
     return "", 204
@@ -96,7 +97,16 @@ def existing_item():
             'quantity': int(quantity)
         }
     res=storage.command("UPDATE inventory SET inventory_quantity = inventory_quantity+{:d} WHERE name='{}'".format(int(quantity),item_name))
-    print(res)
+    return "", 204
+@api.route('/post/remark', methods=['POST'])
+def remark1():
+    message = request.form.get('input5-1')
+    response = {
+            'message': message
+        }
+    print(response)
+    rem=remark(**response)
+    rem.save()
     return "", 204
 @api.route('/post/login', methods=['GET'])
 def login_send():
@@ -115,14 +125,6 @@ def download():
         )
     else:
         return jsonify({"error": "Failed to generate report"}), 500
-import pandas as pd
-from sqlalchemy import create_engine
-import io
-from openpyxl.styles import Font, PatternFill, Border, Side
-from openpyxl.utils import get_column_letter
-import os
-from datetime import datetime
-
 def generate_weekly_report():
     try:
         # Create a database connection
