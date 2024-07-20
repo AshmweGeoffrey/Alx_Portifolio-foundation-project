@@ -1,0 +1,139 @@
+ * Serving Flask app 'app1'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://localhost:5001
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 757-524-148
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /home HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/home.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/table.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/transaction.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/line-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/pie-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/logout.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/login-icon.jpeg HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:06] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:22:08] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:08] "GET /static/css/index-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:08] "GET /static/images/login-icon.jpeg HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:22:08] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:24:22] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:22] "GET /static/css/index-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:22] "GET /static/images/login-icon.jpeg HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:22] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:22] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:24] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:24:24] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:24] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:24] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:26] "POST /login HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 96, in create_connection
+    raise err
+  File "/usr/lib/python3/dist-packages/urllib3/util/connection.py", line 86, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 716, in urlopen
+    httplib_response = self._make_request(
+                       ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 417, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 244, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.11/http/client.py", line 1286, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1332, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1281, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.11/http/client.py", line 1041, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.11/http/client.py", line 979, in send
+    self.connect()
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 205, in connect
+    conn = self._new_conn()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7eaafa393310>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 800, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/v1/post/login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7eaafa393310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2552, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2532, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/micro/Desktop/Alx_Portifolio-foundation-project/back-end/web_flask/app1.py", line 17, in login
+    users=get('{}/post/login'.format(local_api_url)).json()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/v1/post/login (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7eaafa393310>: Failed to establish a new connection: [Errno 111] Connection refused'))
+127.0.0.1 - - [14/Jun/2024 16:24:26] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:26] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:26] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:26] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:36] "POST /login HTTP/1.1" 302 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /home HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/home.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/line-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/table.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/transaction.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/logout.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/pie-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:24:37] "GET /static/images/login-icon.jpeg HTTP/1.1" 304 -

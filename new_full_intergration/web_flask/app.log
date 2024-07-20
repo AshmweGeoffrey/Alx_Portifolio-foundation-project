@@ -1,0 +1,40 @@
+nohup: ignoring input
+ * Serving Flask app 'app1'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://localhost:5001
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 757-524-148
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /home HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/home.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/line-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/logout.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/transaction.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/pie-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/table.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:22] "GET /static/images/login-icon.jpeg HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:23] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:25:24] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:24] "GET /static/css/index-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:24] "GET /static/images/login-icon.jpeg HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:24] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:26] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:25:26] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:26] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:26] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:27] "POST /login HTTP/1.1" 302 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /home HTTP/1.1" 200 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/css/home-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/in-stock.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/home.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/line-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/pie-chart.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/transaction.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/logout.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/table.png HTTP/1.1" 304 -
+127.0.0.1 - - [14/Jun/2024 16:25:28] "GET /static/images/login-icon.jpeg HTTP/1.1" 304 -

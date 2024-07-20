@@ -1,0 +1,8 @@
+nohup: ignoring input
+[2024-06-14 16:34:03 +0200] [25637] [INFO] Starting gunicorn 20.1.0
+[2024-06-14 16:34:03 +0200] [25637] [INFO] Listening at: http://0.0.0.0:5001 (25637)
+[2024-06-14 16:34:03 +0200] [25637] [INFO] Using worker: sync
+[2024-06-14 16:34:03 +0200] [25638] [INFO] Booting worker with pid: 25638
+[2024-06-14 18:01:39 +0200] [25637] [CRITICAL] WORKER TIMEOUT (pid:25638)
+[2024-06-14 18:01:40 +0200] [25638] [INFO] Worker exiting (pid: 25638)
+[2024-06-14 18:01:41 +0200] [42377] [INFO] Booting worker with pid: 42377
